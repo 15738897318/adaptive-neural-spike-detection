@@ -12,11 +12,14 @@ function staticEvaluation(datasetPath, tuningPercent, staticAlgo, thresholdConst
     
     spikes = [];
     
-    for value = 1:tuningNumber
-        if tuningData(value) >= threshold
-            spikes = [spikes; value-15:value];            
+    for value = 1:size(data,2)
+        if data(value) >= threshold
+            spikes = [spikes; value-50:value];            
         end
     end
     
-    x = spikes
+    spikeTimes = dataset.spike_times{1,1};
+    
+    [TP, FP, FN] = spikeDetection(spikes, spikeTimes);
+    [SE, FDR, TOTAL] = detectionStats(TP, FP, FN)
 end

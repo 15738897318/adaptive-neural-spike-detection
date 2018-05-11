@@ -10,6 +10,6 @@ function [TP, FP, FN] = spikeDetection(predicted, actual)
     end
     
     TP = tpCount;
-    FN = size(actual) - TP;
+    FN = size(actual,2) - TP;
     FP = size(predicted,1) - TP;
 end
