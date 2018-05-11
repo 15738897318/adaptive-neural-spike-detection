@@ -9,4 +9,14 @@ function staticEvaluation(datasetPath, tuningPercent, staticAlgo, thresholdConst
     plot(tuningData);
     hold on;
     plot(threshold.*ones(1,tuningNumber));
+    
+    spikes = [];
+    
+    for value = 1:tuningNumber
+        if tuningData(value) >= threshold
+            spikes = [spikes; value-15:value];            
+        end
+    end
+    
+    x = spikes
 end
