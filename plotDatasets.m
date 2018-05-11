@@ -8,16 +8,23 @@ function plotDatasets()
     plot4 = load('datasets/simulation_4.mat');
     plot4 = plot4.data;
     
+    figure;
     subplot(4,1,1);
-    plot(plot1(1:1440000));
+    plot(plot1(1:440000));
+    ylabel('Voltage/mV');
+    xlabel('Time/indices');
+    title('simulation 1');
     
     subplot(4,1,2);
-    plot(plot2(1:1440000));
+    plot(plot2(1:440000));
+    title('simulation 2');
     
     subplot(4,1,3);
-    plot(plot3(1:1440000));
+    plot(plot3(1:440000));
+    title('simulation 3');
     
     subplot(4,1,4);
-    plot(plot4(1:1440000));
+    plot(plot4(1:440000));
+    title('simulation 4');
     
 end

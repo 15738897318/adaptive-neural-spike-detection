@@ -1,6 +1,6 @@
 function plotSpikeLocations()
     plot1 = load('datasets/simulation_1.mat');
-    plot1_data = plot1.data;
+    plot1_data = plot1.data(1:10000);
     plot(plot1_data);
     hold on;
     spikeTimes = plot1.spike_times{1,1};
