@@ -14,7 +14,13 @@ function staticEvaluation(datasetPath, tuningPercent, staticAlgo, thresholdConst
     
     for value = 1:size(data,2)
         if data(value) >= threshold
-            spikes = [spikes; value-50:value];            
+            if spikes
+                if value - spikes(end) > 50 
+                    spikes = [spikes; value-50:value];  
+                end
+            else
+                spikes = [spikes; value-50:value];
+            end
         end
     end
     
