@@ -1,3 +1,3 @@
 function staticEvaluationScript()
-    staticEvaluation('datasets/simulation_1', 10, @setABSThreshold, 500);
+    [SE, FDR, TOTAL] = staticEvaluation('datasets/simulation_1', 10, @setABSThreshold, 400:100:500)
 end
