@@ -1,4 +1,4 @@
-function [sensitivity, falseDetectionRate, performance] = staticEvaluation(datasetPath, tuningPercent, staticAlgo, thresholdConstants)
+function [sensitivity, falseDetectionRate, performance, bestThreshold] = staticEvaluation(datasetPath, tuningPercent, staticAlgo, thresholdConstants)
     dataset = load(datasetPath);
     data = dataset.data;
     tuningNumber = round(size(data,2)*(tuningPercent/100));
@@ -8,6 +8,7 @@ function [sensitivity, falseDetectionRate, performance] = staticEvaluation(datas
     sensitivity = 0;
     falseDetectionRate = 0;
     performance = 0;
+    bestThreshold = 0;
     
     for thresh = 1:length(thresholdConstants)
         threshold = staticAlgo(tuningData, delta, thresholdConstants(thresh));
@@ -40,6 +41,7 @@ function [sensitivity, falseDetectionRate, performance] = staticEvaluation(datas
             sensitivity = SE;
             falseDetectionRate = FDR;
             performance = TOTAL;
+            bestThreshold = [thresholdConstants(thresh) threshold];
         end
         
     end
