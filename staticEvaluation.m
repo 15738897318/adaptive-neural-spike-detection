@@ -1,9 +1,18 @@
 function [sensitivity, falseDetectionRate, performance, bestThreshold] = staticEvaluation(datasetPath, tuningPercent, staticAlgo, thresholdConstants)
     dataset = load(datasetPath);
     data = dataset.data;
+    
+    delta = 4;
+    % Preprocessing for NEO algorithm
+    if isequal(staticAlgo, @setNEOThreshold)
+        for n = 1+delta:size(data,2)-delta
+            y(n) = data(n)^2 - (data(n-delta)*data(n+delta));
+        end
+        data = y;
+    end
+    
     tuningNumber = round(size(data,2)*(tuningPercent/100));
     tuningData = data(1:tuningNumber);
-    delta = 1;
     
     sensitivity = 0;
     falseDetectionRate = 0;
