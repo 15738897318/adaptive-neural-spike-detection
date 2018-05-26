@@ -1,4 +1,4 @@
-function showActualSpike(data, spikes)
+function visualSpikes = showActualSpike(data, spikes)
     visualSpikes = [];
     for spike = 1:size(spikes,2) 
        location = spikes(spike);
