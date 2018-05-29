@@ -6,7 +6,7 @@ function attempt1(datasetPath)
     visualSpikes = showActualSpike(data(1:10000),spikes);
     
     testSegment = data(1:10000);
-    segmentSize = 500;
+    segmentSize = 1000;
     
     threshold = [];
     finalSpikes = [];
@@ -14,7 +14,7 @@ function attempt1(datasetPath)
     for segment = 1:segmentSize:length(testSegment)
         tic;
         secMax = max(testSegment(segment:segment+segmentSize-1));
-        thresh = 0.65*secMax;
+        thresh = 0.7*secMax;
         threshold = [threshold thresh*ones(1,segmentSize-1)];
         spikes = [];
         for element = segment:segment+segmentSize-1
