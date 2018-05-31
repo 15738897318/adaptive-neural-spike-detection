@@ -34,10 +34,6 @@ function attempt2(datasetPath)
                 end
                 previousSpike = currentSpike;
             end
-            if length(plusCount) > maxLength
-                maxLength = length(plusCount);
-                peak = datapoint-1;
-            end
             plusCount = [];
         end
     end
