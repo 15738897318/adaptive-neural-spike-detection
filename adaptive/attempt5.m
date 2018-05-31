@@ -14,9 +14,12 @@ function attempt5(datasetPath)
     finalSpikes = [];
     
     for segment = 1:segmentSize:length(testSegment)
-        tic;
+        %tic;
         secMax = max(testSegment(segment:segment+segmentSize-1));
-        thresh = 0.5*secMax;
+        secMean = mean(abs(testSegment(segment:segment+segmentSize-1)));
+        secStd = std(abs(testSegment(segment:segment+segmentSize-1)));
+        thresh = 3*secStd + 2*secMean;
+        %thresh = secMax - 2*secStd - 1*secMean;
         threshold = [threshold thresh*ones(1,segmentSize-1)];
         spikes = [];
         for element = segment:segment+segmentSize-1
@@ -29,7 +32,7 @@ function attempt5(datasetPath)
         %if length(spikes) < 8
         finalSpikes = [finalSpikes spikes];
         %end
-        toc;
+        %toc;
     end
     
     hold on;

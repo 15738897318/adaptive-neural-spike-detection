@@ -1,4 +1,6 @@
 function attempt2(datasetPath)
+    % Classify spikes based on the length of each "spike"
+    
     dataset = load(datasetPath);
     data = dataset.data;
     spikes = dataset.spike_times{1,1};
@@ -8,31 +10,15 @@ function attempt2(datasetPath)
     visualSpikes = showActualSpike(testData,spikes);
     
     plusCount = [];
-    maxLength = 0;
-    peak = 0;
     predictedSpikes = [];
-    previousSpike = 1;
-    currentSpike = 1;
-    runningMax = 0;
-    runningSegment = [];
     
     for datapoint = 2:length(testData)
-        if rem(800, datapoint) == 0
-            runningMax = max(runningSegment);
-            runningSegment = [];
-        end
-        
-        runningSegment = [runningSegment testData(datapoint)];
         
         if testData(datapoint) > testData(datapoint-1)
             plusCount = [plusCount datapoint]; 
         else
-            if length(plusCount) > 2
-                currentSpike = testData(datapoint-1);
-                if currentSpike > previousSpike*2.5 && currentSpike > runningMax
-                    predictedSpikes = [predictedSpikes datapoint-1];
-                end
-                previousSpike = currentSpike;
+            if length(plusCount) > 5
+                predictedSpikes = [predictedSpikes datapoint-1];
             end
             plusCount = [];
         end
