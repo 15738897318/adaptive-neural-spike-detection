@@ -1,4 +1,4 @@
-function attempt5(datasetPath)
+function attempt6(datasetPath)
     dataset = load(datasetPath);
     data = dataset.data;
     spikes = dataset.spike_times{1,1};
@@ -14,10 +14,13 @@ function attempt5(datasetPath)
     finalSpikes = [];
     
     for segment = 1:segmentSize:length(testSegment)
-        tic;
+        %tic;
         secMean = mean(abs(testSegment(segment:segment+segmentSize-1)));
+        secIqr = iqr(testSegment(segment:segment+segmentSize-1));
         secStd = std(abs(testSegment(segment:segment+segmentSize-1)));
-        thresh = 3*secStd + 2*secMean;
+        secQ = quantile(testSegment(segment:segment+segmentSize-1), 0.999)
+        
+        thresh = secQ;
         threshold = [threshold thresh*ones(1,segmentSize-1)];
         spikes = [];
         for element = segment:segment+segmentSize-1
@@ -28,7 +31,7 @@ function attempt5(datasetPath)
             end
         end
         finalSpikes = [finalSpikes spikes];
-        toc;
+        %toc;
     end
     
     hold on;
