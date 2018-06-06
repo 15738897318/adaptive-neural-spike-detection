@@ -12,7 +12,7 @@ function adaptiveBase(datasetPath)
     [SE, FDR, TOTAL] = detectionStats(TP, FP ,FN)
     
     figure;
-    pos1 = histogram(posGrad);
+    pos1 = histogram(posGrad);a
     hold on;
     pos2 = histogram(pos);
     title("Positve gradient of spikes");

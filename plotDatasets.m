@@ -1,4 +1,6 @@
 function plotDatasets()
+    % Plot all four datasets as subplots on a single figure
+    
     plot1 = load('datasets/simulation_1.mat');
     plot1 = plot1.data;
     plot2 = load('datasets/simulation_2.mat');
