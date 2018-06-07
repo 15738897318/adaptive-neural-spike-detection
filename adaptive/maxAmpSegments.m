@@ -1,4 +1,4 @@
-function attempt1(datasetPath)
+function maxAmpSegments(datasetPath)
     dataset = load(datasetPath);
     data = dataset.data;
     spikes = dataset.spike_times{1,1};

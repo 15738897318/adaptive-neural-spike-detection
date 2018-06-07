@@ -1,11 +1,11 @@
-function attempt2(datasetPath)
+function spikeLength(datasetPath)
     % Classify spikes based on the length of each "spike"
     
     dataset = load(datasetPath);
     data = dataset.data;
     spikes = dataset.spike_times{1,1};
     
-    testData = data(1:10000);
+    testData = data;
     
     visualSpikes = showActualSpike(testData,spikes);
     
