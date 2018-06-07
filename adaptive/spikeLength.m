@@ -17,7 +17,7 @@ function spikeLength(datasetPath)
         if testData(datapoint) > testData(datapoint-1)
             plusCount = [plusCount datapoint]; 
         else
-            if length(plusCount) > 5
+            if length(plusCount) > 9
                 predictedSpikes = [predictedSpikes datapoint-1];
             end
             plusCount = [];
