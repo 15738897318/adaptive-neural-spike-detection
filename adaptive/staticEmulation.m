@@ -1,9 +1,9 @@
-function attempt5(datasetPath)
+function staticEmulation(datasetPath)
     dataset = load(datasetPath);
     data = dataset.data;
     spikes = dataset.spike_times{1,1};
     
-    testSegment = data;
+    testSegment = data(1:100000);
     
     visualSpikes = showActualSpike(testSegment,spikes);
     

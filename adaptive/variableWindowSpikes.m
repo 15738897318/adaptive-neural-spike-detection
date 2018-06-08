@@ -1,10 +1,10 @@
-function attempt3(datasetPath)
+function variableWindowSpikes(datasetPath)
     %Sliding window based design for last x spikes
     dataset = load(datasetPath);
     data = dataset.data;
     spikes = dataset.spike_times{1,1};
     
-    testData = data(1:10000);
+    testData = data;
     
     visualSpikes = showActualSpike(testData,spikes);
     
@@ -15,8 +15,7 @@ function attempt3(datasetPath)
     previousSpike = 1;
     currentSpike = 1;
     runningMax = 0;
-    runningSegment = zeros(1,10);
-    runningMean = zeros(1,10);
+    runningSegment = zeros(1,20);
     
     max100 = 0;
     max200 = 0;
@@ -30,13 +29,11 @@ function attempt3(datasetPath)
         max500 = max(runningSegment);
         runningSegment = runningSegment(1:20);
         
-        runningMean = [runningMean mean(runningSegment(1:5))];
-        
         current = testData(datapoint);
         
         if current > testData(datapoint-1) && current > testData(datapoint+1)
             runningSegment = [current runningSegment];
-            if current > 1*max100 %&& current > 0.8*max200 && current > 1.2*max500
+            if current > 1*max100 && current > 0.8*max200 && current > 1.2*max500
                 predictedSpikes = [predictedSpikes datapoint];
             end
         end
@@ -53,10 +50,6 @@ function attempt3(datasetPath)
             plot(location, testData(location), 'b*');
         end
         hold on;
-    end
-    hold on;
-    for entry = 1:length(runningMean)
-        plot(runningMean
     end
     
     [TP, FP, FN] = actualSpikeDetection(predictedSpikes, visualSpikes);

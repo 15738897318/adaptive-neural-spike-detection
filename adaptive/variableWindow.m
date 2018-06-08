@@ -22,13 +22,13 @@ function variableWindow(datasetPath)
     max500 = 0;
     
     for datapoint = 2:length(testData)-1
-        if rem(datapoint, 100) == 0
-            max100 = max(runningSegment(1:100));
-        end
+        %if rem(datapoint, 100) == 0
+        max100 = max(runningSegment(1:100));
+        %end
         
-        if rem(datapoint, 200) == 0
-            max200 = max(runningSegment(1:200));
-        end
+        %if rem(datapoint, 200) == 0
+        max200 = max(runningSegment(1:200));
+        %end
         if rem(datapoint, 500) == 0
             max500 = max(runningSegment);
             runningSegment = runningSegment(1:200);
