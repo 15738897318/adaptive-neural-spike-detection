@@ -32,7 +32,7 @@ Can be run directly and will plot the raw spike locations of dataset 1 in red st
 The only script in this directory that should be run directly is `staticEvaluationScript`.  Open the other files for comments describing their functionality.
 
 - #### staticEvaluationScript
-This is the only file in this directory that should be executed directly.  To run a particular test, uncomment the desired line and run the file.  It will make calls to the other files in this directory and return a plot showing the tuning process as well as overall performance metrics in the console.
+  This is the only file in this directory that should be executed directly.  To run a particular test, uncomment the desired line and run the file.  It will make calls to the other files in this directory and return a plot showing the tuning process as well as overall performance metrics in the console.
 
 
 ### Adaptive
