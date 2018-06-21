@@ -1,4 +1,7 @@
 function adaptiveBase(datasetPath)
+    % The base function for running the preprocessing adaptive algorithm
+    % attempt
+    
     dataset = load(datasetPath);
     data = dataset.data;
     spikes = dataset.spike_times{1,1};
@@ -12,7 +15,7 @@ function adaptiveBase(datasetPath)
     [SE, FDR, TOTAL] = detectionStats(TP, FP ,FN)
     
     figure;
-    pos1 = histogram(posGrad);a
+    pos1 = histogram(posGrad);
     hold on;
     pos2 = histogram(pos);
     title("Positve gradient of spikes");

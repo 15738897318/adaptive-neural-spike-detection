@@ -1,4 +1,6 @@
 function maxAmpSegments(datasetPath)
+    % Max amplitude segment algorithm 
+    
     dataset = load(datasetPath);
     data = dataset.data;
     spikes = dataset.spike_times{1,1};

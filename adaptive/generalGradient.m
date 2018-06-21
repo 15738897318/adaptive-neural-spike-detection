@@ -1,4 +1,6 @@
 function [posGrad, negGrad, spikes] = generalGradient(data)
+    % Get gradient of all spikes (i.e. including noise), not just actual spikes
+
     posGrad = [];
     negGrad = [];
     spikes = [];

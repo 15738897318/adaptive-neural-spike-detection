@@ -1,6 +1,6 @@
 function [TP, FP, FN] = actualSpikeDetection(predicted, actual)
 % Calculate true positive, false negative and false positive detection
-% rates
+% rates. Variation of ../static/spikeDetection
 %
 % predicted = predicted spike locations matrix after using static threshold
 % actual = the actual locations of the spikes

@@ -1,5 +1,7 @@
 function variableWindowSpikes(datasetPath)
-    %Sliding window based design for last x spikes
+    % Sliding window based design with early spike classification
+    
+    
     dataset = load(datasetPath);
     data = dataset.data;
     spikes = dataset.spike_times{1,1};

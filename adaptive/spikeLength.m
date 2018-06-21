@@ -1,5 +1,5 @@
 function spikeLength(datasetPath)
-    % Classify spikes based on the length of each "spike"
+    % Spike length algorithm
     
     dataset = load(datasetPath);
     data = dataset.data;

@@ -1,4 +1,6 @@
-function attempt6(datasetPath)
+function quantileAlgo(datasetPath)
+    % Quantile algorithm
+    
     dataset = load(datasetPath);
     data = dataset.data;
     spikes = dataset.spike_times{1,1};
@@ -15,10 +17,7 @@ function attempt6(datasetPath)
     
     for segment = 1:segmentSize:length(testSegment)
         %tic;
-        secMean = mean(abs(testSegment(segment:segment+segmentSize-1)));
-        secIqr = iqr(testSegment(segment:segment+segmentSize-1));
-        secStd = std(abs(testSegment(segment:segment+segmentSize-1)));
-        secQ = quantile(testSegment(segment:segment+segmentSize-1), 0.999)
+        secQ = quantile(testSegment(segment:segment+segmentSize-1), 0.999);
         
         thresh = secQ;
         threshold = [threshold thresh*ones(1,segmentSize-1)];

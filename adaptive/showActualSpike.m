@@ -1,4 +1,8 @@
 function visualSpikes = showActualSpike(data, spikes)
+    % Plot actual location of spikes and return the visual spike locations
+    % Inputs are: data - the datapoints of a simulation
+    % spikes - The spike locations provided by a dataset
+    
     visualSpikes = [];
     for spike = 1:size(spikes,2) 
        location = spikes(spike);
