@@ -1,0 +1,9 @@
+The datasets used in this project can be downloaded from: https://www2.le.ac.uk/departments/engineering/research/bioengineering/neuroengineering-lab/software
+
+Go to section "Dataset # 3: Simlulated extracellular recordings" and download the first 4 simulations.  Direct links are shown below
+
+dataset 1 - https://www2.le.ac.uk/departments/engineering/research/bioengineering/neuroengineering-lab/simulations/simulation-1.mat
+dataset 2 - https://www2.le.ac.uk/departments/engineering/research/bioengineering/neuroengineering-lab/simulations/simulation-2.mat
+dataset 3 - https://www2.le.ac.uk/departments/engineering/research/bioengineering/neuroengineering-lab/simulations/simulation-3.mat
+dataset 4 - https://www2.le.ac.uk/departments/engineering/research/bioengineering/neuroengineering-lab/simulations/simulation-4.mat
+
