@@ -16,6 +16,8 @@ A few general purpose scripts are included in the root directory.
 
 Before any scripts can be run, the appropriate datasets should be downloaded from the URLs detailed in the `datasets` folder.
 
+##### NOTE - Some scripts may throw an error when you attempt to run them.  This is because they may be calling a function outside the current directory.  Add the function to the MATLAB path by clicking the prompt in the console and then re-run the script.
+
 ### Root Directory
 
 - #### detectionStats
